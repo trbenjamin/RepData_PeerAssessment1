@@ -4,7 +4,9 @@ output:
   html_document:
     keep_md: true
 ---
-
+## Notes ...
+# 2015-10-16
+# (1) 11:38 Initial commit to check git hub
 
 ## Loading and preprocessing the data
 
