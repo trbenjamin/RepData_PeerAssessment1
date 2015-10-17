@@ -8,7 +8,7 @@ output:
 # 2015-10-16
 # (1) 11:38 Initial commit to check git hub
 
-## Loading and preprocessing the data
+## Loading and preprocessing the datat
 
 ```{r, echo = TRUE}
 activity <- read.table(unz("activity.zip", "activity.csv"), header=T, quote="\"", sep=",")
@@ -35,7 +35,13 @@ print ( paste("Median Steps per Day = ", median_steps_per_day) )
 ```
 
 ## What is the average daily activity pattern?
-
+```{r, echo=T}
+df.int5 <- summarize(group_by(activity, interval), step_5min_mean = mean(steps, na.rm=T))
+par(xaxs='i')
+plot(df.int5, type = 'l', xlim=c(0,2500))
+print ( df.int5[df.int5$step_5min_mean ==  max(df.int5$step_5min_mean),] )
+print ( filter(df.int5, step_5min_mean == max(step_5min_mean)) )
+```
 
 
 ## Imputing missing values

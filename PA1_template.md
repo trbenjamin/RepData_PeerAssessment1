@@ -3,7 +3,7 @@
 # 2015-10-16
 # (1) 11:38 Initial commit to check git hub
 
-## Loading and preprocessing the data
+## Loading and preprocessing the datat
 
 
 ```r
@@ -76,6 +76,35 @@ print ( paste("Median Steps per Day = ", median_steps_per_day) )
 
 ## What is the average daily activity pattern?
 
+```r
+df.int5 <- summarize(group_by(activity, interval), step_5min_mean = mean(steps, na.rm=T))
+par(xaxs='i')
+plot(df.int5, type = 'l', xlim=c(0,2500))
+```
+
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+
+```r
+print ( df.int5[df.int5$step_5min_mean ==  max(df.int5$step_5min_mean),] )
+```
+
+```
+## Source: local data frame [1 x 2]
+## 
+##   interval step_5min_mean
+## 1      835       206.1698
+```
+
+```r
+print ( filter(df.int5, step_5min_mean == max(step_5min_mean)) )
+```
+
+```
+## Source: local data frame [1 x 2]
+## 
+##   interval step_5min_mean
+## 1      835       206.1698
+```
 
 
 ## Imputing missing values
