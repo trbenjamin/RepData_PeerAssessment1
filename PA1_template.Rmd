@@ -4,11 +4,7 @@ output:
   html_document:
     keep_md: true
 ---
-## Notes ...
-# 2015-10-16
-# (1) 11:38 Initial commit to check git hub
-
-## Loading and preprocessing the datat
+## Loading and preprocessing the data
 
 ```{r, echo = TRUE}
 activity <- read.table(unz("activity.zip", "activity.csv"), header=T, quote="\"", sep=",")
@@ -38,14 +34,17 @@ print ( paste("Median Steps per Day = ", median_steps_per_day) )
 ```{r, echo=T}
 df.int5 <- summarize(group_by(activity, interval), step_5min_mean = mean(steps, na.rm=T))
 par(xaxs='i')
-plot(df.int5, type = 'l', xlim=c(0,2500))
-print ( df.int5[df.int5$step_5min_mean ==  max(df.int5$step_5min_mean),] )
+plot(df.int5, type = 'l', xlim=c(0,2500), main = "Mean Steps per Day")
+print ( "Determine 5 minute interval with aximum number of steps.")
+#print ( df.int5[df.int5$step_5min_mean ==  max(df.int5$step_5min_mean),] )
 print ( filter(df.int5, step_5min_mean == max(step_5min_mean)) )
 ```
 
 
 ## Imputing missing values
+###    __ No submission for this section :-(
 
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
+###    __ No submission for this section :-(

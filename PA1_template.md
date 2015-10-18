@@ -1,8 +1,4 @@
 # Reproducible Research: Peer Assessment 1
-## Notes ...
-# 2015-10-16
-# (1) 11:38 Initial commit to check git hub
-
 ## Loading and preprocessing the datat
 
 
@@ -79,23 +75,21 @@ print ( paste("Median Steps per Day = ", median_steps_per_day) )
 ```r
 df.int5 <- summarize(group_by(activity, interval), step_5min_mean = mean(steps, na.rm=T))
 par(xaxs='i')
-plot(df.int5, type = 'l', xlim=c(0,2500))
+plot(df.int5, type = 'l', xlim=c(0,2500), main = "Mean Steps per Day")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
 ```r
-print ( df.int5[df.int5$step_5min_mean ==  max(df.int5$step_5min_mean),] )
+print ( "Determine 5 minute interval with aximum number of steps.")
 ```
 
 ```
-## Source: local data frame [1 x 2]
-## 
-##   interval step_5min_mean
-## 1      835       206.1698
+## [1] "Determine 5 minute interval with aximum number of steps."
 ```
 
 ```r
+#print ( df.int5[df.int5$step_5min_mean ==  max(df.int5$step_5min_mean),] )
 print ( filter(df.int5, step_5min_mean == max(step_5min_mean)) )
 ```
 
@@ -108,7 +102,9 @@ print ( filter(df.int5, step_5min_mean == max(step_5min_mean)) )
 
 
 ## Imputing missing values
+###    __ No submission for this section :-(
 
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
+###    __ No submission for this section :-(
